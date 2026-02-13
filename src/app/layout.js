@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
         className={`${inter.variable} ${outfit.variable} ${syne.variable} ${poppins.variable} antialiased font-sans bg-white text-gray-900`}
       >
         <Header />
-        <main className="min-h-screen container">
+        <main className="min-h-screen ">
           {children}
         </main>
         <Footer />
