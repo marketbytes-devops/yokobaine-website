@@ -60,7 +60,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 bg-white rounded-lg py-3 px-6 shadow shadow-gray-300">
+        <nav className="hidden lg:flex items-center h-12 xl:h-14 space-x-4 xl:space-x-8 bg-white rounded-lg px-6 shadow shadow-gray-300">
           {navLinks.map((link) => {
             const isActive = pathname === link.path;
             return (
@@ -85,7 +85,7 @@ const Header = () => {
         <div className="flex items-center">
           <button
             onClick={() => window.open('https://wa.me/2348033037700', '_blank')}
-            className="bg-white rounded-lg py-1.5 px-3 md:px-4 shadow shadow-gray-300 flex items-center text-sm md:text-base whitespace-nowrap"
+            className="bg-white rounded-lg h-12 xl:h-14 px-3 md:px-4 shadow shadow-gray-300 flex items-center whitespace-nowrap"
           >
             <span className="hidden sm:inline">Talk to Us</span>
             <span className="sm:ml-2"><Image src={personGif} alt="Talk to Us" width={30} height={30} className="w-8 h-8 sm:w-8 sm:h-8 md:w-8 md:h-8 lg:w-8 lg:h-8 xl:w-10 xl:h-10" /></span>
@@ -146,7 +146,7 @@ const Header = () => {
             <div className="flex items-center">
               <button
                 onClick={() => window.open('https://wa.me/2348033037700', '_blank')}
-                className="bg-white rounded-lg py-1.5 px-3 md:px-4 shadow shadow-gray-300 flex items-center whitespace-nowrap"
+                className="bg-white rounded-lg h-12 px-3 md:px-4 shadow shadow-gray-300 flex items-center whitespace-nowrap"
               >
                 <span className="inline">Talk to Us</span>
                 <span className="ml-2"><Image src={personGif} alt="Talk to Us" width={30} height={30} className="md:w-10 md:h-10" /></span>
@@ -154,7 +154,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </header >
   );
 };
