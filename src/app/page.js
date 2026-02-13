@@ -1,12 +1,12 @@
-import Hero from "../home/Hero";
-import AboutSection from "../home/AboutSection";
-import InstitutionSection from "../home/InstitutionSection";
-import UpgradeSection from "../home/UpgradeSection";
-import InsightsSection from "../home/InsightsSection";
-import ControlSection from "../home/ControlSection";
-import FAQSection from "../home/FAQSection";
-import VideoSection from "../home/VideoSection";
-import FooterBanner from "../home/FooterBanner";
+import Hero from "../components/ui/home/Hero";
+import AboutSection from "../components/ui/home/AboutSection";
+import InstitutionSection from "../components/ui/home/InstitutionSection";
+import UpgradeSection from "../components/ui/home/UpgradeSection";
+import InsightsSection from "../components/ui/home/InsightsSection";
+import ControlSection from "../components/ui/home/ControlSection";
+import FAQSection from "../components/ui/home/FAQSection";
+import VideoSection from "../components/ui/home/VideoSection";
+import FooterBanner from "../components/ui/home/FooterBanner";
 
 export default function Home() {
   return (
