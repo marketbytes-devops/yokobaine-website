@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import img1 from '../assets/images/home/home-banner-bottom-img-1.jpg';
-import img2 from '../assets/images/home/home-banner-bottom-img-2.jpg';
-import img3 from '../assets/images/home/home-banner-bottom-img-3.jpg';
-import img4 from '../assets/images/home/home-banner-bottom-img-4.jpg';
+import Image from "next/image";
+import img1 from "@/assets/images/home/home-banner-bottom-img-1.jpg";
+import img2 from "@/assets/images/home/home-banner-bottom-img-2.jpg";
+import img3 from "@/assets/images/home/home-banner-bottom-img-3.jpg";
+import img4 from "@/assets/images/home/home-banner-bottom-img-4.jpg";
 
 const Hero = () => {
   return (
@@ -22,8 +22,18 @@ const Hero = () => {
         <div className="flex justify-center mb-16">
           <button className="px-8 py-3 bg-white border border-gray-200 rounded-full text-gray-800 font-semibold shadow-sm hover:shadow-md transition-all flex items-center group">
             Know more
-            <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
         </div>
