@@ -42,7 +42,7 @@ const FAQSection = () => {
                                     {index !== faqs.length - 1 && <div className="w-[2px] h-full bg-orange-100 group-hover:bg-gray-100 transition-colors my-2"></div>}
                                 </div>
 
-                                <div className="bg-gray-50 p-8 rounded-[2rem] flex-1 hover:bg-white hover:shadow-xl hover:shadow-gray-100 transition-all duration-300 border border-transparent hover:border-gray-100">
+                                <div className="bg-gray-50 p-8 rounded[2rem] flex-1 hover:bg-white hover:shadow-xl hover:shadow-gray-100 transition-all duration-300 border border-transparent hover:border-gray-100">
                                     <h3 className="text-xl font-bold mb-4 text-gray-900">{faq.question}</h3>
                                     <p className="text-gray-600 leading-relaxed italic">{faq.answer}</p>
                                 </div>

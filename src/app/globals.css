@@ -23,11 +23,17 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background: var(--background);
   color: var(--foreground);
 }
 
-/* Slick Carousel Overrides */
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .slick-dots li button:before {
   color: #F47E24 !important;
 }
@@ -41,7 +47,6 @@ body {
   color: #1A1A1A !important;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -59,7 +64,6 @@ body {
   background: #ea580c;
 }
 
-/* Animations */
 @keyframes blob {
   0% {
     transform: translate(0px, 0px) scale(1);
