@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1F1F1F;
 }
 
 @theme {
@@ -10,18 +10,19 @@
   --font-outfit: var(--font-outfit);
   --font-syne: var(--font-syne);
   --font-poppins: var(--font-poppins);
-  --color-orange-50: #fff7ed;
-  --color-orange-100: #ffedd5;
-  --color-orange-200: #fed7aa;
-  --color-orange-300: #fdba74;
-  --color-orange-400: #fb923c;
-  --color-orange-500: #FE9800;
-  --color-orange-600: #FF9900;
-  --color-green-50: #f0fdf4;
-  --color-green-100: #dcfce7;
-  --color-green-200: #bbf7d0;
-  --color-green-500: #00B67A;
-  --color-green-600: #16a34a;
+
+  --color-brand-orange: #D96716;
+  --color-brand-teal: #22B891;
+  --color-brand-green: #1B9D20;
+  --color-brand-yellow: #F5B11B;
+  --color-brand-dark-green: #0A3E27;
+  --color-brand-light-gray: #E7E7E7;
+  --color-brand-dark-gray: #1F1F1F;
+  --color-brand-medium-gray: #2A2A2A;
+  --color-brand-slate: #1F2327;
+
+  --color-orange-500: var(--color-brand-orange);
+  --color-green-500: var(--color-brand-green);
 }
 
 body {
@@ -138,6 +139,20 @@ ul li {
 @media (min-width: 1024px) {
   ul li {
     font-size: 20px;
+  }
+}
+
+a,
+button {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+
+  a,
+  button {
+    font-size: 18px;
   }
 }
 
