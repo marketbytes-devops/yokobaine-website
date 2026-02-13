@@ -158,6 +158,37 @@ h3 {
   }
 }
 
+h4 {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  h4 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h4 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  h4 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1536px) {
+  h4 {
+    font-size: 16px;
+  }
+}
+
 p {
   font-family: var(--font-poppins), sans-serif;
   font-weight: 400;
@@ -179,7 +210,7 @@ p {
 
 @media (min-width: 1536px) {
   p {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
