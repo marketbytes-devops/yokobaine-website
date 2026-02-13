@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const slides = [
+const SLIDES = [
   {
     title: "The Awakening",
     subtitle: "Revolutionize Education. Empower Every Mind.",
@@ -20,271 +20,256 @@ const slides = [
   },
 ];
 
+const CARDS = [
+  {
+    type: "image",
+    bg: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&q=80",
+    alt: "Teacher at smart board",
+  },
+  {
+    type: "color",
+    bg: "#2D9E2D",
+    text: "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.",
+  },
+  {
+    type: "image",
+    bg: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80",
+    alt: "Student studying",
+  },
+  {
+    type: "color",
+    bg: "#E09000",
+    text: "Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.",
+  },
+  {
+    type: "image",
+    bg: "https://images.unsplash.com/photo-1560785496-3c9d27877182?w=500&q=80",
+    alt: "Family learning together",
+  },
+  {
+    type: "image",
+    bg: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=80",
+    alt: "Team meeting",
+  },
+];
+
+
+const CARD_FINAL = [
+  { tx: -420, ty:  20, rotate: -8,  zIndex: 2, w: 300, h: 260 },
+  { tx: -215, ty: -20, rotate: -4,  zIndex: 3, w: 300, h: 260},
+  { tx:   -5, ty:  10, rotate:  2,  zIndex: 4, w: 300, h: 260 },
+  { tx:  205, ty: -25, rotate:  6,  zIndex: 3, w: 300, h: 260 },
+  { tx:  395, ty:   5, rotate: 10,  zIndex: 2, w: 300, h: 260},
+  { tx:  575, ty:  18, rotate: 14,  zIndex: 1, w: 300, h:260 },
+];
+
+function clamp(v, lo, hi) { return Math.min(hi, Math.max(lo, v)); }
+
+
+function easeOutBack(t) {
+  const c1 = 1.70158;
+  const c3 = c1 + 1;
+  return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+}
+
+function easeOutExpo(t) {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
 export default function HeroSection() {
-  const [current, setCurrent] = useState(0);
-  const [fading, setFading] = useState(false);
+  const [current, setCurrent]   = useState(0);
+  const [fading, setFading]     = useState(false);
+  const [progress, setProgress] = useState(0);
+  const scatterRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setFading(true);
       setTimeout(() => {
-        setCurrent((prev) => (prev + 1) % slides.length);
+        setCurrent((prev) => (prev + 1) % SLIDES.length);
         setFading(false);
       }, 450);
     }, 4000);
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = scatterRef.current;
+      if (!el) return;
+      const rect  = el.getBoundingClientRect();
+      const total = el.offsetHeight - window.innerHeight;
+      const scrolled = -rect.top;
+      setProgress(clamp(scrolled / total, 0, 1));
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   function handleDot(i) {
     if (i === current || fading) return;
     setFading(true);
-    setTimeout(() => {
-      setCurrent(i);
-      setFading(false);
-    }, 450);
+    setTimeout(() => { setCurrent(i); setFading(false); }, 450);
   }
 
+  const blast = easeOutBack(clamp(progress * 1.6, 0, 1)); 
+
+  
+  const START_Y = 300;
+
+  const STAGE_W  = 820;
+  const STAGE_H  = 280;
+  const CENTER_X = STAGE_W / 2;
+  const CENTER_Y = STAGE_H / 2 + 20;
+
   return (
-    <>
+    <div style={{ overflowX: "hidden" }}>
       <style>{`
-    
-
-        .hero {
-          position: relative;
-          width: 100%;
-          min-height: 100vh;
-          overflow: hidden;
-          background: #fdf4ed;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-        }
-
-        /* ── Orbit: zero-size anchor at screen centre, spins forever ── */
-        .orbit-wrap {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 0;
-          height: 0;
-          pointer-events: none;
-          z-index: 0;
-          animation: heroSpin 10s linear infinite;
-        }
-
         @keyframes heroSpin {
           from { transform: rotate(0deg); }
           to   { transform: rotate(360deg); }
         }
+        .animate-hero-spin { animation: heroSpin 10s linear infinite; }
 
-        .orb {
+        .sc-card {
           position: absolute;
-          width: 70vw;
-          max-width: 820px;
-          aspect-ratio: 1;
-          border-radius: 50%;
-          filter: blur(110px);
-          opacity: 0.78;
-        }
-
-        /* Orange: top quadrant */
-        .orb-orange {
-          background: radial-gradient(circle at 40% 35%, #ffb347 0%, #f97316 55%, transparent 80%);
-          top: -80vw;
-          left: -35vw;
-        }
-
-        /* Green: bottom quadrant — 180° opposite */
-        .orb-green {
-          background: radial-gradient(circle at 55% 60%, #b8f254 0%, #84cc16 50%, transparent 80%);
-          top: 10vw;
-          left: -35vw;
-        }
-
-        /* ── Content wrapper ── */
-        .hero-content {
-          position: relative;
-          z-index: 1;
-          text-align: center;
-          /* Horizontal padding so text sits centred with breathing room */
-          padding: 0 10%;
-          width: 100%;
-        }
-.slide-title {
-  color: #111;
-  font-size: clamp(36px, 6vw, 72px); /* responsive but smaller */
-  line-height: 1.15;
-  transition: opacity 0.45s ease, transform 0.45s ease;
-}
-
-
-     
-        .slide-sub {
-          margin-top: 16px;
-          color: #888;
-          /* font-size, font-family from global p */
-          font-size: clamp(1rem, 1.8vw, 1.3rem);
-          font-weight: 400;
-          transition: opacity 0.45s ease, transform 0.45s ease;
-        }
-
-        /* body copy — global p styles apply, just add spacing + muted colour */
-        .slide-body {
-          margin-top: 12px;
-    
-          max-width: 500px;
-          margin-left: auto;
-          margin-right: auto;
-          transition: opacity 0.45s ease;
-        }
-
-        /* Fade-out state */
-        .slide-title.fade,
-        .slide-sub.fade,
-        .slide-body.fade {
-          opacity: 0;
-          transform: translateY(14px);
-        }
-
-        /* ── CTA button ── */
-        .hero-cta {
-          margin-top: 48px;
-          display: inline-flex;
-          align-items: center;
-          gap: 16px;
-          background: rgba(255, 255, 255, 0.72);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          border-radius: 9999px;
-          padding: 16px 20px 16px 40px;
-          /* Reset global p font styles on the button */
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.82rem;
-          font-weight: 700;
-          letter-spacing: 0.13em;
-          text-transform: uppercase;
-          color: #111;
+          border-radius: 18px;
+          overflow: hidden;
           cursor: pointer;
-          box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
-          transition: box-shadow 0.25s, transform 0.2s;
-          border: none;
+          will-change: transform, opacity;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.22);
         }
-        .hero-cta:hover {
-          box-shadow: 0 10px 44px rgba(0, 0, 0, 0.15);
-          transform: translateY(-2px);
+        .sc-card:hover {
+          box-shadow: 0 20px 60px rgba(0,0,0,0.35) !important;
+          z-index: 99 !important;
         }
-        .hero-cta-plus {
-          width: 34px;
-          height: 34px;
-       
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: black;
-          font-size: 1.2rem;
-          line-height: 1;
-          flex-shrink: 0;
+        html, body {
+          overflow-x: hidden !important;
+          max-width: 100vw !important;
         }
-
-        /* ── Dot navigation ── */
-        .hero-dots {
-          position: absolute;
-          bottom: 52px;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          gap: 10px;
-          z-index: 2;
-        }
-        .hero-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          border: 1.5px solid #555;
-          background: transparent;
-          cursor: pointer;
-          transition: background 0.3s, transform 0.2s;
-          padding: 0;
-        }
-        .hero-dot.on {
-          background: #333;
-          border-color: #333;
-          transform: scale(1.25);
-        }
-
-        /* ── Corner speech bubbles ── */
-        .hero-bubble {
-          position: absolute;
-          z-index: 3;
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.82rem;
-          font-weight: 700;
-          color: #fff;
-          border-radius: 999px;
-          padding: 9px 20px;
-          pointer-events: none;
-        }
-        .bubble-hey {
-          bottom: 52px;
-          left: 36px;
-          background: #f97316;
-          transform: rotate(-7deg);
-          animation: bUp 3.2s ease-in-out infinite alternate;
-        }
-        .bubble-here {
-          bottom: 64px;
-          right: 36px;
-          background: #65a30d;
-          transform: rotate(5deg);
-          animation: bUp2 3.8s ease-in-out infinite alternate;
-        }
-        @keyframes bUp  { to { transform: rotate(-7deg) translateY(-10px); } }
-        @keyframes bUp2 { to { transform: rotate(5deg)  translateY(-7px);  } }
       `}</style>
 
-      <div className="hero">
 
-    
-        <div className="orbit-wrap">
-          <div className="orb orb-orange" />
-          <div className="orb orb-green" />
+      <div
+        className="relative w-full bg-[#fdf4ed] flex flex-col min-h-screen items-center justify-center"
+        style={{ paddingBottom: "200px", zIndex: 0 }}
+      >
+        <div className="absolute pointer-events-none" style={{ overflow: "hidden", top: "-120px", left: 0, right: 0, bottom: 0, zIndex: -1 }}>
+          <div className="absolute animate-hero-spin" style={{ top: "50%", left: "50%", width: 0, height: 0 }}>
+            <div className="absolute rounded-full opacity-[0.78]" style={{ width: "70vw", maxWidth: "820px", aspectRatio: "1", filter: "blur(110px)", background: "radial-gradient(circle at 40% 35%, #ffb347 0%, #f97316 55%, transparent 80%)", top: "-80vw", left: "-35vw" }} />
+            <div className="absolute rounded-full opacity-[0.78]" style={{ width: "70vw", maxWidth: "820px", aspectRatio: "1", filter: "blur(110px)", background: "radial-gradient(circle at 55% 60%, #b8f254 0%, #84cc16 50%, transparent 80%)", top: "10vw", left: "-35vw" }} />
+          </div>
         </div>
 
-      
-        <div className="hero-content">
-          <h2 className={`slide-title${fading ? " fade" : ""}`}>
-            {slides[current].title}
+        <div className="hero-content relative mt-40 z-[1] text-center px-[10%] w-full">
+          <h2
+            className="text-[#111] leading-[1.15] transition-[opacity,transform] duration-[450ms] ease-in-out"
+            style={{ fontSize: "clamp(36px, 6vw, 72px)", opacity: fading ? 0 : 1, transform: fading ? "translateY(14px)" : "translateY(0)", border: "none", background: "none", boxShadow: "none", padding: 0 }}
+          >
+            {SLIDES[current].title}
           </h2>
-          <p className={`slide-sub${fading ? " fade" : ""}`}>
-            {slides[current].subtitle}
+          <p
+            className="mt-4 text-[#888] font-normal transition-[opacity,transform] duration-[450ms] ease-in-out"
+            style={{ opacity: fading ? 0 : 1, transform: fading ? "translateY(14px)" : "translateY(0)", border: "none", background: "none", boxShadow: "none", padding: 0 }}
+          >
+            {SLIDES[current].subtitle}
           </p>
-          <h5 className={`slide-body${fading ? " fade" : ""}`}>
-            {slides[current].body}
+          <h5
+            className="mt-3 max-w-[500px] mx-auto transition-opacity duration-[450ms] ease-in-out"
+            style={{ opacity: fading ? 0 : 1, border: "none", background: "none", boxShadow: "none", padding: 0 }}
+          >
+            {SLIDES[current].body}
           </h5>
-          <button className="hero-cta">
+
+          <button
+            className="mt-12 inline-flex items-center gap-4 backdrop-blur-[16px] rounded-full py-4 pl-10 pr-5 font-bold text-[0.82rem] tracking-[0.13em] uppercase text-[#111] cursor-pointer shadow-[0_6px_30px_rgba(0,0,0,0.08)] border-none transition-[box-shadow,transform] duration-[250ms] hover:shadow-[0_10px_44px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
+            style={{ backgroundColor: "rgba(255,255,255,0.72)" }}
+          >
             START COLLABORATE
-            <span className="hero-cta-plus">+</span>
+            <span className="w-[34px] h-[34px] rounded-full flex items-center justify-center text-black text-[1.2rem] leading-none shrink-0">+</span>
           </button>
         </div>
 
-        {/* Dot navigation */}
-        <div className="hero-dots">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              className={`hero-dot${i === current ? " on" : ""}`}
-              onClick={() => handleDot(i)}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Floating corner speech bubbles */}
-        <div className="hero-bubble bubble-hey">Hey!!!</div>
-        <div className="hero-bubble bubble-here">We Are Here</div>
+   
       </div>
-    </>
+
+      {/* ── SCATTER / BLAST SECTION ───────────────────────────────────────── */}
+      <div
+        ref={scatterRef}
+        style={{ position: "relative", height: "220vh", background: "#fdf4ed" }}
+      >
+        <div
+          style={{
+            position: "sticky",
+            top: 0,
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "hidden",
+          }}
+        >
+          <div style={{ position: "relative", width: `${STAGE_W}px`, height: `${STAGE_H}px` }}>
+            {CARDS.map((card, i) => {
+              const f = CARD_FINAL[i];
+
+              // All cards blast from (0, START_Y) → their final (tx, ty)
+              const currentTx = f.tx * blast;
+              const currentTy = START_Y + (f.ty - START_Y) * blast;
+
+              // Rotate: each card spins into its final angle
+              const currentRotate = f.rotate * blast;
+
+              // Scale: starts at 0.6 at origin, expands to 1.0
+              const currentScale = 0.6 + 0.4 * clamp(blast, 0, 1);
+
+              // Opacity: pop in fast
+              const opacity = clamp(progress * 8, 0, 1);
+
+              return (
+                <div
+                  key={i}
+                  className="sc-card"
+                  style={{
+                    left:   CENTER_X + currentTx - f.w / 2,
+                    top:    CENTER_Y + currentTy - f.h / 2,
+                    width:  f.w,
+                    height: f.h,
+                    zIndex: f.zIndex,
+                    opacity,
+                    transform: `rotate(${currentRotate}deg) scale(${currentScale})`,
+                    transition: "box-shadow 0.2s ease",
+                  }}
+                >
+                  {card.type === "image" ? (
+                    <img src={card.bg} alt={card.alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  ) : (
+                    <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "flex-end", padding: "18px 16px", background: card.bg }}>
+                      <p style={{ color: "#fff", fontSize: "0.78rem", fontWeight: 600, lineHeight: 1.4, margin: 0 }}>{card.text}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Talk to us */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "12%",
+              left: "50%",
+              transform: `translateX(-50%) translateY(${(1 - clamp(progress * 2 - 0.5, 0, 1)) * 30}px)`,
+              opacity: clamp(progress * 2 - 0.5, 0, 1),
+            }}
+          >
+            <button style={{ background: "#1a1a2e", color: "#fff", border: "none", borderRadius: "999px", padding: "12px 32px", fontSize: "0.85rem", fontWeight: 600, cursor: "pointer", boxShadow: "0 6px 24px rgba(0,0,0,0.18)", letterSpacing: "0.04em" }}>
+              Talk to us
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
