@@ -41,11 +41,11 @@ const Header = () => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm shadow-gray-300' : 'bg-transparent'
         }`}
     >
-      <div className={`container h-auto flex items-center justify-between transition-all duration-500 ease-in-out ${scrolled ? 'py-1' : 'py-3 2xl:py-6'
+      <div className={`container h-auto flex items-center justify-between transition-all duration-500 ease-in-out ${scrolled ? 'py-1' : 'py-3 lg:py-6'
         }`}>
         <div className="flex items-center gap-4">
           <button
-            className="2xl:hidden text-[#22B891] p-2"
+            className="lg:hidden text-brand-teal p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -56,11 +56,11 @@ const Header = () => {
               alt="yokobaine Logo"
               width={150}
               height={40}
-              className="w-auto h-8 md:h-12 2xl:h-24 transition-all duration-500"
+              className="w-auto h-8 md:h-12 lg:h-16 xl:h-24 transition-all duration-500"
             />
           </Link>
         </div>
-        <nav className="hidden 2xl:flex items-center space-x-4 xl:space-x-8 bg-white rounded-lg py-3 px-6 shadow shadow-gray-300">
+        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 bg-white rounded-lg py-3 px-6 shadow shadow-gray-300">
           {navLinks.map((link) => {
             const isActive = pathname === link.path;
             return (
@@ -88,12 +88,12 @@ const Header = () => {
             className="bg-white rounded-lg py-1.5 px-3 md:px-4 shadow shadow-gray-300 flex items-center text-sm md:text-base whitespace-nowrap"
           >
             <span className="hidden sm:inline">Talk to Us</span>
-            <span className="sm:ml-2"><Image src={personGif} alt="Talk to Us" width={30} height={30} className="md:w-10 md:h-10" /></span>
+            <span className="sm:ml-2"><Image src={personGif} alt="Talk to Us" width={30} height={30} className="w-8 h-8 sm:w-8 sm:h-8 md:w-8 md:h-8 lg:w-8 lg:h-8 xl:w-10 xl:h-10" /></span>
           </button>
         </div>
       </div>
       <div
-        className={`fixed inset-0 h-screen w-screen z-60 transition-all duration-500 ease-in-out 2xl:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 h-screen w-screen z-60 transition-all duration-500 ease-in-out lg:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
       >
         <div
@@ -102,7 +102,7 @@ const Header = () => {
         />
 
         <div className="absolute top-[-10%] left-[-10%] w-64 h-64 bg-[#F47522]/10 rounded-full blur-3xl animate-blob pointer-events-none" />
-        <div className="absolute bottom-[10%] right-[-10%] w-80 h-80 bg-[#22B891]/10 rounded-full blur-3xl animate-blob pointer-events-none animation-delay-2000" />
+        <div className="absolute bottom-[10%] right-[-10%] w-80 h-80 bg-brand-teal/10 rounded-full blur-3xl animate-blob pointer-events-none animation-delay-2000" />
 
         <div className="relative flex flex-col h-full z-10">
           <div className="flex items-center justify-between p-6">
@@ -110,7 +110,7 @@ const Header = () => {
               <Image src={logo} alt="yokobaine Logo" width={120} height={35} className="w-auto h-8" />
             </Link>
             <button
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-[#22B891] text-white shadow-lg transition-transform active:scale-90"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-teal text-white shadow-lg transition-transform active:scale-90"
               onClick={() => setIsMenuOpen(false)}
             >
               <X size={20} />
@@ -126,7 +126,7 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                   style={{ transitionDelay: `${index * 50}ms` }}
                   className={`tracking-tight transition-all duration-500 transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                    } ${isActive ? 'text-black' : 'text-[#1F1F1F]'}`}
+                    } ${isActive ? 'text-black' : 'text-brand-dark-gray'}`}
                 >
                   <div className="relative px-2 py-1">
                     {link.name}
@@ -146,7 +146,7 @@ const Header = () => {
             <div className="flex items-center">
               <button
                 onClick={() => window.open('https://wa.me/2348033037700', '_blank')}
-                className="bg-white rounded-lg py-1.5 px-3 md:px-4 shadow shadow-gray-300 flex items-center text-sm md:text-base whitespace-nowrap"
+                className="bg-white rounded-lg py-1.5 px-3 md:px-4 shadow shadow-gray-300 flex items-center whitespace-nowrap"
               >
                 <span className="inline">Talk to Us</span>
                 <span className="ml-2"><Image src={personGif} alt="Talk to Us" width={30} height={30} className="md:w-10 md:h-10" /></span>
