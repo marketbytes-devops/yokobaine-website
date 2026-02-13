@@ -1,8 +1,8 @@
-import Image from "next/image";
-import img1 from "@/assets/images/home/home-banner-bottom-img-1.jpg";
-import img2 from "@/assets/images/home/home-banner-bottom-img-2.jpg";
-import img3 from "@/assets/images/home/home-banner-bottom-img-3.jpg";
-import img4 from "@/assets/images/home/home-banner-bottom-img-4.jpg";
+import Image from 'next/image';
+import img1 from '@/assets/images/home/home-banner-bottom-img-1.jpg';
+import img2 from '@/assets/images/home/home-banner-bottom-img-2.jpg';
+import img3 from '@/assets/images/home/home-banner-bottom-img-3.jpg';
+import img4 from '@/assets/images/home/home-banner-bottom-img-4.jpg';
 
 const Hero = () => {
   return (

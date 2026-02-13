@@ -5,9 +5,9 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import img1 from "@/assets/images/home/all-seeing-control-img-1.jpg";
-import img2 from "@/assets/images/home/all-seeing-control-img-2.jpg";
-import img3 from "@/assets/images/home/all-seeing-control-img-3.jpg";
+import img1 from '@/assets/images/home/all-seeing-control-img-1.jpg';
+import img2 from '@/assets/images/home/all-seeing-control-img-2.jpg';
+import img3 from '@/assets/images/home/all-seeing-control-img-3.jpg';
 
 const ControlSection = () => {
   const settings = {
