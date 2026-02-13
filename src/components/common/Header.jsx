@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '../assets/images/logo/logo.png';
+import logo from '@/assets/images/logo/logo.png';
 
 const Header = () => {
   return (

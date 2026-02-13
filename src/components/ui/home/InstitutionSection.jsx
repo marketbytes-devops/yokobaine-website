@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import institutionImg from '../assets/images/home/for-institutions-img.png';
+import institutionImg from '@/assets/images/home/for-institutions-img.png';
 
 const InstitutionSection = () => {
     return (
