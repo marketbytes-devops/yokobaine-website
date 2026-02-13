@@ -173,13 +173,13 @@ p {
 
 @media (min-width: 1280px) {
   p {
-    font-size: 18px;
+    font-size: 12px;
   }
 }
 
 @media (min-width: 1536px) {
   p {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -197,6 +197,12 @@ ul li {
 }
 
 @media (min-width: 1280px) {
+  ul li {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1536px) {
   ul li {
     font-size: 20px;
   }
@@ -228,6 +234,15 @@ button,
 }
 
 @media (min-width: 1280px) {
+
+  a,
+  button,
+  .button {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1536px) {
 
   a,
   button,
