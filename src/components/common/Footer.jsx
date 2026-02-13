@@ -6,7 +6,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'luc
 const Footer = () => {
     return (
         <footer className="bg-gray-50 pt-20 pb-10 border-t border-gray-100">
-            <div className="container mx-auto px-4">
+            <div className="container">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     <div className="space-y-6">
                         <Image src={logo} alt="yokobaine" width={160} height={40} className="w-auto h-8" />

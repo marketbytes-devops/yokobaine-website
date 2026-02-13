@@ -4,7 +4,7 @@ import logo from '../assets/images/logo/logo.png';
 const FooterBanner = () => {
     return (
         <section className="py-24 bg-[#00B67A] overflow-hidden">
-            <div className="container mx-auto px-4">
+            <div className="container">
                 <div className="flex flex-col md:flex-row justify-between items-start mb-16 px-4">
                     <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
                         Lorem Ipsum

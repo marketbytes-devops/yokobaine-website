@@ -4,7 +4,7 @@ import institutionImg from '../assets/images/home/for-institutions-img.png';
 const InstitutionSection = () => {
     return (
         <section className="py-20 bg-[#F9FAFB]">
-            <div className="container mx-auto px-4">
+            <div className="container">
                 <div className="flex flex-col md:flex-row items-center gap-16">
                     <div className="md:w-1/2 relative">
                         {/* Dark green background polygon/shape */}

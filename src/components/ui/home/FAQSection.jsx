@@ -19,7 +19,7 @@ const FAQSection = () => {
 
     return (
         <section className="py-24 bg-white">
-            <div className="container mx-auto px-4">
+            <div className="container">
                 <div className="flex flex-col md:flex-row gap-20">
                     <div className="md:w-1/2">
                         <h2 className="text-5xl md:text-7xl font-black text-gray-900 leading-none mb-4 uppercase tracking-tighter">

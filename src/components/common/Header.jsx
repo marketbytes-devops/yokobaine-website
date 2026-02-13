@@ -5,7 +5,7 @@ import logo from '../assets/images/logo/logo.png';
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+      <div className="container h-20 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/">
             <Image src={logo} alt="yokobaine Logo" width={150} height={40} className="w-auto h-8 md:h-10" />

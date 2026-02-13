@@ -1,7 +1,7 @@
 const InsightsSection = () => {
     return (
         <section className="py-24 bg-white overflow-hidden">
-            <div className="container mx-auto px-4">
+            <div className="container">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                     <div>
                         <div className="inline-flex items-center space-x-2 text-orange-500 font-bold mb-4">

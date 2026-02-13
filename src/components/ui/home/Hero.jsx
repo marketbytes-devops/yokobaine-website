@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-orange-200/50 rounded-full blur-3xl opacity-60 transition-all duration-700 animate-pulse"></div>
       <div className="absolute top-20 left-10 -z-10 w-[400px] h-[400px] bg-green-100/50 rounded-full blur-3xl opacity-40"></div>
 
-      <div className="container mx-auto px-4 text-center">
+      <div className="container text-center">
         <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 tracking-tighter font-outfit">
           The Awakening
         </h1>

@@ -1,7 +1,7 @@
 const UpgradeSection = () => {
     return (
         <section className="py-24 bg-[#1A1A1A] text-white">
-            <div className="container mx-auto px-4">
+            <div className="container">
                 <div className="max-w-4xl mx-auto">
                     <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-12">
                         <div className="flex flex-col items-center md:items-start text-center md:text-left">

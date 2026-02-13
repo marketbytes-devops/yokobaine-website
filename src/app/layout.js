@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         className={`${inter.variable} ${outfit.variable} antialiased font-sans bg-white text-gray-900`}
       >
         <Header />
-        <main className="min-h-screen">
+        <main className="min-h-screen container">
           {children}
         </main>
         <Footer />

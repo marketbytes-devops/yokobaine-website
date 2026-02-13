@@ -6,7 +6,7 @@ import img3 from '../assets/images/home/all-in-one-platform-video-thumbnail-img-
 const VideoSection = () => {
     return (
         <section className="py-24 bg-gray-100">
-            <div className="container mx-auto px-4 text-center">
+            <div className="container text-center">
                 <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
                     All-In-One Platform For <br className="hidden md:block" /> Education
                 </h2>
