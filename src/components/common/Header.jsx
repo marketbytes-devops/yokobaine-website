@@ -41,11 +41,11 @@ const Header = () => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm shadow-gray-300' : 'bg-transparent'
         }`}
     >
-      <div className={`container h-auto flex items-center justify-between transition-all duration-500 ease-in-out ${scrolled ? 'py-1' : 'py-3 lg:py-6'
+      <div className={`container h-auto flex items-center justify-between transition-all duration-500 ease-in-out ${scrolled ? 'py-1' : 'py-3 2xl:py-6'
         }`}>
         <div className="flex items-center gap-4">
           <button
-            className="lg:hidden text-[#22B891] p-2"
+            className="2xl:hidden text-[#22B891] p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -56,11 +56,11 @@ const Header = () => {
               alt="yokobaine Logo"
               width={150}
               height={40}
-              className="w-auto h-8 md:h-12 lg:h-16 xl:h-24 transition-all duration-500"
+              className="w-auto h-8 md:h-12 2xl:h-24 transition-all duration-500"
             />
           </Link>
         </div>
-        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 bg-white rounded-lg py-3 px-6 shadow shadow-gray-300">
+        <nav className="hidden 2xl:flex items-center space-x-4 xl:space-x-8 bg-white rounded-lg py-3 px-6 shadow shadow-gray-300">
           {navLinks.map((link) => {
             const isActive = pathname === link.path;
             return (
@@ -93,7 +93,7 @@ const Header = () => {
         </div>
       </div>
       <div
-        className={`fixed inset-0 h-screen w-screen z-60 transition-all duration-500 ease-in-out lg:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 h-screen w-screen z-60 transition-all duration-500 ease-in-out 2xl:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
       >
         <div
