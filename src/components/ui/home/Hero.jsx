@@ -150,68 +150,55 @@ export default function HeroSection() {
         }
       `}</style>
 
-      {/* ── SCATTER / BLAST SECTION ───────────────────────────────────────── */}
-      {/* 
-        CHANGE: Wrapped both the hero and the scatter section inside a single
-        scroll-driver container (scatterRef). The hero is now `sticky` inside
-        that container so it pins in place while the scatter animation plays.
-        Previously the hero was a separate full-screen block above the scatter
-        section, so it had already scrolled away before the blast started.
-      */}
+
       <div
-        ref={scatterRef}
-        style={{ position: "relative", height: "320vh", background: "#fdf4ed" }}
+        className="relative w-full bg-[#fdf4ed] flex flex-col min-h-screen items-center justify-center"
+        style={{ paddingBottom: "200px", zIndex: 0 }}
       >
-        {/* ── HERO (pinned) ─────────────────────────────────────────────── */}
-        <div
-          className="relative w-full bg-[#fdf4ed] flex flex-col items-center justify-center"
-          style={{
-            position: "sticky",
-            top: 0,
-            height: "100vh",
-            paddingBottom: "200px",
-            zIndex: 0,
-            pointerEvents: progress > 0.05 ? "none" : "auto",
-          }}
-        >
-          <div className="absolute pointer-events-none" style={{ overflow: "hidden", top: "-120px", left: 0, right: 0, bottom: 0, zIndex: -1 }}>
-            <div className="absolute animate-hero-spin" style={{ top: "50%", left: "50%", width: 0, height: 0 }}>
-              <div className="absolute rounded-full opacity-[0.78]" style={{ width: "70vw", maxWidth: "820px", aspectRatio: "1", filter: "blur(110px)", background: "radial-gradient(circle at 40% 35%, #ffb347 0%, #f97316 55%, transparent 80%)", top: "-80vw", left: "-35vw" }} />
-              <div className="absolute rounded-full opacity-[0.78]" style={{ width: "70vw", maxWidth: "820px", aspectRatio: "1", filter: "blur(110px)", background: "radial-gradient(circle at 55% 60%, #b8f254 0%, #84cc16 50%, transparent 80%)", top: "10vw", left: "-35vw" }} />
-            </div>
-          </div>
-
-          <div className="hero-content relative mt-40 z-[1] text-center px-[10%] w-full">
-            <h2
-              className="text-[#111] leading-[1.15] transition-[opacity,transform] duration-[450ms] ease-in-out"
-              style={{ fontSize: "clamp(36px, 6vw, 72px)", opacity: fading ? 0 : 1, transform: fading ? "translateY(14px)" : "translateY(0)", border: "none", background: "none", boxShadow: "none", padding: 0 }}
-            >
-              {SLIDES[current].title}
-            </h2>
-            <p
-              className="mt-4 text-[#888] font-normal transition-[opacity,transform] duration-[450ms] ease-in-out"
-              style={{ opacity: fading ? 0 : 1, transform: fading ? "translateY(14px)" : "translateY(0)", border: "none", background: "none", boxShadow: "none", padding: 0 }}
-            >
-              {SLIDES[current].subtitle}
-            </p>
-            <h5
-              className="mt-3 max-w-[500px] mx-auto transition-opacity duration-[450ms] ease-in-out"
-              style={{ opacity: fading ? 0 : 1, border: "none", background: "none", boxShadow: "none", padding: 0 }}
-            >
-              {SLIDES[current].body}
-            </h5>
-
-            <button
-              className="mt-12 inline-flex items-center gap-4 backdrop-blur-[16px] rounded-full py-4 pl-10 pr-5 font-bold text-[0.82rem] tracking-[0.13em] uppercase text-[#111] cursor-pointer shadow-[0_6px_30px_rgba(0,0,0,0.08)] border-none transition-[box-shadow,transform] duration-[250ms] hover:shadow-[0_10px_44px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
-              style={{ backgroundColor: "rgba(255,255,255,0.72)" }}
-            >
-              START COLLABORATE
-              <span className="w-[34px] h-[34px] rounded-full flex items-center justify-center text-black text-[1.2rem] leading-none shrink-0">+</span>
-            </button>
+        <div className="absolute pointer-events-none" style={{ overflow: "hidden", top: "-120px", left: 0, right: 0, bottom: 0, zIndex: -1 }}>
+          <div className="absolute animate-hero-spin" style={{ top: "50%", left: "50%", width: 0, height: 0 }}>
+            <div className="absolute rounded-full opacity-[0.78]" style={{ width: "70vw", maxWidth: "820px", aspectRatio: "1", filter: "blur(110px)", background: "radial-gradient(circle at 40% 35%, #ffb347 0%, #f97316 55%, transparent 80%)", top: "-80vw", left: "-35vw" }} />
+            <div className="absolute rounded-full opacity-[0.78]" style={{ width: "70vw", maxWidth: "820px", aspectRatio: "1", filter: "blur(110px)", background: "radial-gradient(circle at 55% 60%, #b8f254 0%, #84cc16 50%, transparent 80%)", top: "10vw", left: "-35vw" }} />
           </div>
         </div>
 
-        {/* ── CARDS (also sticky, layered on top of hero) ───────────────── */}
+        <div className="hero-content relative mt-40 z-[1] text-center px-[10%] w-full">
+          <h2
+            className="text-[#111] leading-[1.15] transition-[opacity,transform] duration-[450ms] ease-in-out"
+            style={{ fontSize: "clamp(36px, 6vw, 72px)", opacity: fading ? 0 : 1, transform: fading ? "translateY(14px)" : "translateY(0)", border: "none", background: "none", boxShadow: "none", padding: 0 }}
+          >
+            {SLIDES[current].title}
+          </h2>
+          <p
+            className="mt-4 text-[#888] font-normal transition-[opacity,transform] duration-[450ms] ease-in-out"
+            style={{ opacity: fading ? 0 : 1, transform: fading ? "translateY(14px)" : "translateY(0)", border: "none", background: "none", boxShadow: "none", padding: 0 }}
+          >
+            {SLIDES[current].subtitle}
+          </p>
+          <h5
+            className="mt-3 max-w-[500px] mx-auto transition-opacity duration-[450ms] ease-in-out"
+            style={{ opacity: fading ? 0 : 1, border: "none", background: "none", boxShadow: "none", padding: 0 }}
+          >
+            {SLIDES[current].body}
+          </h5>
+
+          <button
+            className="mt-12 inline-flex items-center gap-4 backdrop-blur-[16px] rounded-full py-4 pl-10 pr-5 font-bold text-[0.82rem] tracking-[0.13em] uppercase text-[#111] cursor-pointer shadow-[0_6px_30px_rgba(0,0,0,0.08)] border-none transition-[box-shadow,transform] duration-[250ms] hover:shadow-[0_10px_44px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
+            style={{ backgroundColor: "rgba(255,255,255,0.72)" }}
+          >
+            START COLLABORATE
+            <span className="w-[34px] h-[34px] rounded-full flex items-center justify-center text-black text-[1.2rem] leading-none shrink-0">+</span>
+          </button>
+        </div>
+
+   
+      </div>
+
+      {/* ── SCATTER / BLAST SECTION ───────────────────────────────────────── */}
+      <div
+        ref={scatterRef}
+        style={{ position: "relative", height: "220vh", background: "#fdf4ed" }}
+      >
         <div
           style={{
             position: "sticky",
@@ -221,9 +208,6 @@ export default function HeroSection() {
             alignItems: "center",
             justifyContent: "center",
             overflow: "hidden",
-            // Only becomes visible once scroll starts — sits on top of the pinned hero
-            pointerEvents: progress > 0.05 ? "auto" : "none",
-            zIndex: 1,
           }}
         >
           <div style={{ position: "relative", width: `${STAGE_W}px`, height: `${STAGE_H}px` }}>
