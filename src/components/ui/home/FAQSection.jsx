@@ -24,13 +24,13 @@ const FAQSection = () => {
     return (
         <section className="py-24 bg-white">
             <div className="container">
-                <div className="flex flex-col md:flex-row gap-20">
+                <div className="flex flex-col md:flex-row gap-30">
                     <div className="md:w-[60%] lg:w-[40%]">
-                        <h4 className="font-syne font-medium text-[42px] md:text-[80px] leading-[1.1] md:leading-[100px] tracking-[0.03em] text-[#000000] uppercase flex flex-col">
+                        <h2 className="font-syne text-[#000000] uppercase flex flex-col">
                             <span>ANY</span>
                             <span>QUESTIONS?</span>
                             <span className="whitespace-nowrap">WE GOT YOU</span>
-                        </h4>
+                        </h2>
                         <div className="mt-6">
                             {/* Wavy Orange Line - Vector 315 Approximation */}
                             <svg className="w-full max-w-[602px]" height="21" viewBox="0 0 602 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,8 +63,8 @@ const FAQSection = () => {
                             {faqs.map((faq, index) => (
                                 <div key={index} className={`flex flex-col group transition-all duration-500 ${index === 1 ? '-ml-14' : 'ml-0'}`}>
                                     <div className="bg-[#E9E9E9] px-10 py-7 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-gray-200 min-h-[140px]">
-                                        <h3 className="text-[24px] font-medium mb-2 text-[#1F2327] font-poppins leading-[120%]">{faq.question}</h3>
-                                        <p className="text-[#1F2327] text-[20px] leading-[1.4] font-poppins max-w-[850px]">{faq.answer}</p>
+                                        <h3 className="mb-2 text-[#1F2327]">{faq.question}</h3>
+                                        <p>{faq.answer}</p>
                                     </div>
                                 </div>
                             ))}
