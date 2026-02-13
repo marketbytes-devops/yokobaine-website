@@ -6,7 +6,7 @@ import InsightsSection from "../components/ui/home/InsightsSection";
 import ControlSection from "../components/ui/home/ControlSection";
 import FAQSection from "../components/ui/home/FAQSection";
 import VideoSection from "../components/ui/home/VideoSection";
-import FooterBanner from "../components/ui/home/FooterBanner";
+import Footer from "@/components/common/Footer";
 
 export default function Home() {
   return (
@@ -19,7 +19,6 @@ export default function Home() {
       <ControlSection />
       <FAQSection />
       <VideoSection />
-      <FooterBanner />
     </div>
   );
 }
