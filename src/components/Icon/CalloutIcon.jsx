@@ -1,0 +1,27 @@
+import React from 'react'
+
+const CalloutIcon = ({ title }) => {
+    return (
+        <svg width="167" height="89" viewBox="0 0 167 89" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ rotate: "-1deg" }}>
+            <rect x="1.52474" width="164.747" height="46.3016" rx="23.1508" transform="rotate(1.024 1.52474 0)" fill="#FE9800" />
+            <path d="M114.437 72.8099C113.16 76.8569 107.74 77.5729 105.455 73.9963L83.7652 40.0351C81.7957 36.9514 83.6968 32.866 87.3243 32.3869L121.143 27.9198C124.771 27.4407 127.667 30.8923 126.566 34.3817L114.437 72.8099Z" fill="#FE9800" />
+            <text
+                x="83"
+                y="28"
+                fill="white"
+                textAnchor="middle"
+                className="select-none"
+                style={{
+                    fontSize: '18px',
+                    fontWeight: '400',
+                    fontFamily: 'Poppins, sans-serif',
+                    rotate: "1deg",
+                }}
+            >
+                {title}
+            </text>
+        </svg>
+    )
+}
+
+export default CalloutIcon

@@ -145,8 +145,8 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className='button-container flex items-center justify-center'>
-                <button className='button px-4 py-2 md:px-6 md:py-2 text-xs md:text-sm rounded-full bg-[#1B9D20] text-white hover:bg-[#F5B11B] transition-colors duration-300 hover:shadow-xl md:hover:shadow-2xl hover:shadow-gray-600'>
+              <div className='button flex items-center justify-center'>
+                <button className='button px-4 py-2 md:px-6 md:py-2 text-xs md:text-sm rounded-full bg-[#1B9D20] text-white hover:bg-brand-yellow transition-colors duration-300 hover:shadow-xl hover:shadow-gray-400'>
                   Talk To Us
                 </button>
               </div>

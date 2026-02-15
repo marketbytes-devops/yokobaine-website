@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+/* pt-4 md:pt-24 */
+
 :root {
   --background: #ffffff;
   --foreground: #1F1F1F;

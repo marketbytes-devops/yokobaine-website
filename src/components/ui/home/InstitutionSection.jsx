@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import institutionImg from '@/assets/images/home/for-institutions-img.png';
 import InstitutionIcon from '@/components/Icon/InstitutionIcon';
-import UnderLine from '@/components/Icon/UnderLine';
+import UnderLineIcon from '@/components/Icon/UnderLineIcon';
 import GreenPolygon from '@/components/Icon/GreenPolygon';
 import WhiteBar from '@/components/Icon/WhiteBar';
 
@@ -48,16 +48,16 @@ const InstitutionSection = () => {
         <div className="w-full flex flex-col md:flex-row items-center space-x-40">
           {/* Left Side: Illustration and Background */}
           <div className="md:w-[40%] relative flex items-center justify-center">
-            
+
             <div className='w-[20%] '>
-              <GreenPolygon/>
+              <GreenPolygon />
             </div>
 
             {/* White bar at the bottom of the illustration */}
             <div className="absolute bottom-[10%] left-[5%] right-[5%] h-14 bg-white -z-10"></div>
 
             {/* Orange Curly Icon (InstitutionIcon) */}
-            <div className="absolute top-[15%]  -right-[25%] z-20 pointer-events-none transform rotate-[-2deg]">
+            <div className="absolute top-[15%]  -right-[25%] z-20 pointer-events-none transform rotate-2">
               <InstitutionIcon />
             </div>
 
@@ -73,7 +73,7 @@ const InstitutionSection = () => {
               />
             </div>
             <div className='absolute top-[56%]'>
-              <WhiteBar/>
+              <WhiteBar />
             </div>
           </div>
 
@@ -95,7 +95,7 @@ const InstitutionSection = () => {
                         {slide.title}
                       </h5>
                       <div className="mt-1">
-                        <UnderLine />
+                        <UnderLineIcon />
                       </div>
                     </div>
 

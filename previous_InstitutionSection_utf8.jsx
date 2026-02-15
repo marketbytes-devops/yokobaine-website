@@ -1,7 +1,7 @@
 ﻿import Image from 'next/image';
 import institutionImg from '@/assets/images/home/for-institutions-img.png';
 import InstitutionIcon from '@/components/Icon/InstitutionIcon';
-import UnderLine from '@/components/Icon/UnderLine';
+import UnderLine from '@/components/Icon/UnderLineIcon';
 
 const InstitutionSection = () => {
   return (
@@ -11,7 +11,7 @@ const InstitutionSection = () => {
           {/* Left Side: Illustration and Background */}
           <div className="md:w-[40%] relative min-h-[400px] flex items-center justify-center">
             {/* Custom Dark Green Shape */}
-            <div 
+            <div
               className="absolute inset-0 bg-[#0A3E27]  rounded-[2rem]"
               style={{
                 clipPath: 'polygon(0% 12%, 100% 42%, 100% 85%, 0% 100%)'
